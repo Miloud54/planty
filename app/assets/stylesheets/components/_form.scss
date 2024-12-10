@@ -1,0 +1,28 @@
+.form-booking {
+  color: #1A1A1A;
+}
+
+.form-input {
+  margin-bottom: 1rem;
+}
+
+.form-input-message {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #E8E8E8;
+  padding: 12px;
+
+  &:focus {
+    border-color: #1EDD88;
+    box-shadow: 0 0 0 0.2rem rgba(30, 221, 136, 0.25);
+  }
+}
+
+.flat-show-card {
+  background-color: #F8F9FA;
+  padding: 1rem;
+  border-radius: 8px;
+} 
