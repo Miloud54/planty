@@ -5,7 +5,6 @@ class Plant < ApplicationRecord
 
   validates :name, presence: true
   validates :image, presence: true
-  validates :indoor, presence: true
   validates :price_per_day, presence: true
 
   WATERING = %w(frequent average minimum none)
