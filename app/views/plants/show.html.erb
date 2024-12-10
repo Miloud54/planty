@@ -1,0 +1,80 @@
+<div class="container mt-4">
+  <div class="row justify-content-between">
+    <!-- Plant Info Card -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow" style="border-radius: 32px;">
+        <div class="card-img-top">
+          <%= image_tag @plant.image, alt: @plant.name, class: "w-100 object-fit-cover", style: "height: 330px; border-radius: 32px 32px 0 0;" %>
+        </div>
+
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="card-title mb-0"><%= @plant.name %></h2>
+            <span class="price-text fs-3"><%= @plant.price_per_day.to_i %>€/day</span>
+          </div>
+
+          <div class="plant-details mt-4">
+            <div class="row">
+              <div class="col-4">
+                <p><strong>Watering:</strong><br><%= @plant.watering %></p>
+              </div>
+              <div class="col-4">
+                <p><strong>Sunlight:</strong><br><%= @plant.sunlight %></p>
+              </div>
+              <div class="col-4">
+                <p><strong>Cycle:</strong><br><%= @plant.cycle %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Form Card -->
+    <div class="col-12 col-lg-6">
+      <div class="card shadow" style="border-radius: 32px;">
+        <div class="card-body p-5">
+          <div class="booking-form">
+            <h5 class="form-booking card-title fw-bold mb-4 text-center">Book this plant</h5>
+            <%= simple_form_for [@plant, @booking] do |f| %>
+              <div class="form-input mb-3">
+                <%= f.input :start_date,
+                            as: :string,
+                            label: "Start date",
+                            input_html: {
+                              data: { controller: "datepicker" },
+                              class: "form-control"
+                            } %>
+              </div>
+
+              <div class="form-input mb-3">
+                <%= f.input :end_date,
+                            as: :string,
+                            label: "End date",
+                            input_html: {
+                              data: { controller: "datepicker" },
+                              class: "form-control"
+                            } %>
+              </div>
+
+              <div class="form-input-message mb-3">
+                <%= f.input :message,
+                            label: "Message",
+                            input_html: { class: "form-control" } %>
+              </div>
+
+              <%= f.submit "Book now", class: "btn-green w-100 mt-4" %>
+            <% end %>
+
+            <div class="flat-show-card d-flex justify-content-between mt-4">
+              <h5 class="form-booking fw-bold mt-3">Details</h5>
+              <div class="d-flex gap-1 mt-3">
+                <p><%= @plant.price_per_day.to_i %>€ per day</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

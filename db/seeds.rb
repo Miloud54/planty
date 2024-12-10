@@ -32,7 +32,7 @@ plants = plant_data["data"]
     Plant.create!(
       name: plant["common_name"] || "Unknown Plant",
       watering: plant["watering"] || "unknown",
-      image: plant.dig("default_image", "original_url"),
+      image: plant.dig("default_image", "small_url"),
       sunlight: plant["sunlight"] ? plant["sunlight"].join(", ") : "unknown",
       price_per_day: rand(10..100),
       cycle: plant["cycle"] || "unknown",
